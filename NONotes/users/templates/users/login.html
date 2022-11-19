@@ -1,0 +1,46 @@
+
+
+{% extends 'non/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% load static %}
+{% block head %}
+   <link rel="stylesheet" href="{% static 'non/stylesheets/login/style.css' %}">
+{% endblock %}
+{% block body %}
+<main class="main">
+   <section class="authorization full-height">
+      <div class="container">
+         <div class="authorization__inner">
+            <div class="authorization__logo logo">
+               NotOnlyNotes
+            </div>
+            <div class="authorization__block">
+               <div class="authorization__content">
+                  <h1 class="authorization__header">Авторизация</h1>
+                  <div class="authorization__instruction">Еще не с нами? <a class="link" href="{% url 'register' %}">Зарегистрироваться!</a></div>
+                  <form class="authorization__form" method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                   <div class="regiter__form-input-group">
+                        {{ form.username.errors }}
+                        <label class="authorization__form-name" for="username">Имя пользователя</label>
+                        {{ form.username|add_class:"authorization__form-input" }}
+                   </div>
+                   <div class="regiter__form-input-group">
+                        {{ form.password.errors }}
+                        <label class="authorization__form-name" for="email">Пароль</label>
+                        {{ form.password|add_class:"authorization__form-input" }}
+                    </div>
+                     <input class="authorization__btn btn" type="submit" value="Войти">
+                  </form>
+               </div>
+               <div class="authorization__decorative">
+                  <img class="authorization__img" src="{% static 'non/img/login/authorization-img.png' %}" alt="">
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock %}

@@ -1,0 +1,432 @@
+.content-wrapper {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   height: 100vh;
+   overflow: hidden;
+}
+
+.aside {
+   background-color: var(--main-color, green);
+   height: 100%;
+   width: 30%;
+}
+
+.aside__logo {
+   font-size: var(--link-size, 2rem);
+   padding: 40px 40px 0 40px;
+   margin-bottom: 40px; /* Переделать */
+}
+
+.notes-container {
+   max-width: 1592px;
+   margin: 0 auto;
+   padding: 40px;
+   height: 100%;
+}
+
+.aside__inner {
+   display: flex;
+   justify-content: flex-start;
+   flex-direction: column;
+   height: 100%;
+}
+
+.aside__list {
+   display: flex;
+   flex-direction: column;
+}
+
+.aside__el {
+   color: var(--white-color, #fff);
+   font-size: var(--p-size, 2rem);
+   font-weight: 600;
+   display: block;
+   padding: 10px 0 10px 40px;
+}
+
+.aside__el:not(:last-child) {
+   margin-bottom: 1rem; 
+}
+
+.aside__el::before {
+   margin-right: 1.5rem; /* Переделать */
+}
+
+.aside__el--anim {
+   background:
+   linear-gradient(#A2C8B5 0 0) 
+   right / var(--d, 0%) 100% no-repeat;
+   transition: background 0.5s;
+   margin-left: 1rem;
+}
+
+.aside__el--anim:hover {
+   --d: 100%;
+   border-radius: 100px 0 0 100px;
+   color: #fff;
+}
+
+.aside__link-icon {
+   /* font-size: var(--p-size, 2rem); */
+   width: calc(var(--p-size, 2rem) + 0.5rem); /* Переделать*/
+   margin-right: 1rem;
+}
+
+.aside__link {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.aside__account-block {
+   display: grid;
+   color: var(--white-color, #fff);
+   background-color: #A2C8B5;
+   border-radius: 10px;
+   padding: 1rem;
+   grid-template-columns: auto 1fr;
+   gap: 0.5rem;
+   margin: auto 40px 40px 40px;
+   align-items: center;
+}
+
+.aside__name {
+   font-size: var(--p-small-size, 1.25rem);
+   font-weight: 600;
+   margin-bottom: 0.625rem;
+}
+
+.aside__descr {
+   font-size: 0.9rem;
+   font-weight: 500;
+   font-style: oblique;
+}
+
+.main {
+   width: 100%;
+}
+
+.hero {
+   position: relative;
+}
+
+.hero__top {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: flex-start;
+   margin-bottom: 0.5rem;
+}
+
+.hero__header {
+   font-size: var(--small-header-size, 3rem);
+}
+
+.hero__func-list {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.hero__func-el {
+   transform: none;
+   transition: transform 0.3s ease-in-out;
+}
+
+.hero__func-el:not(:last-child) {
+   margin-right: 1rem;
+}
+
+.hero__func-el--hover:hover {
+   transform: scale(1.2);
+   transition: transform 0.3s ease-in-out;
+}
+
+.hero__descr {
+   display: inline-block;
+   font-size: var(--p-size, 1.5rem);
+   font-weight: 500;
+}
+
+.hero__notes-list {
+   height: 70vh;
+   overflow-x: scroll;
+   padding: 1rem; /*Убрать попозже*/
+}
+
+.hero__notes-el {
+   border-radius: 20px;
+   padding: 1rem 1.5rem;
+   border: 3px solid var(--main-color);
+   background-color: var(--white-color);
+}
+
+.hero__notes-el:not(:last-child) {
+   margin-bottom: 1rem;
+}
+
+.hero__notes-header {
+   font-size: var(--link-size, 2.25rem);
+   /* margin-bottom: var(--margin-small-bottom, 1.5rem); */
+   width: 100%;
+   height: calc(var(--margin-small-bottom, 1.5rem) + 2.25rem);
+   resize: none;
+   border: none;
+   outline: none;
+}
+
+.hero__notes-header[disabled] {
+   color: inherit;
+   background-color: inherit;
+}
+
+.hero__notes-descr {
+   font-weight: 500;
+   font-size: var(--p-size, 1.5rem);
+   margin-bottom: 1rem;
+   display: block;
+   resize: none;
+   border: none;
+   width: 100%;
+   height: 100%;
+   border-top: #A2C8B5 3px solid;
+   outline: none;
+   /* background-color: rgba(196, 196, 196, 0.2    ); */
+}
+
+.hero__notes-descr[disabled] {
+   color: inherit;
+   background-color: inherit;
+}
+
+.hero__notes-date {
+   display: block;
+   font-size: var(--p-small-size, 1.25rem);
+   font-weight: 500;
+   color: #8A8EAB;
+   text-align: right;
+}
+
+
+
+.hero__notes-el--test {
+   position: absolute;
+   display: flex;
+   width: 97%;
+   height: 90%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   flex-direction: column;
+}
+
+.hero__util-list {
+   clear: both;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin-bottom: var(--margin-small-bottom, 2rem);
+}
+
+.hero__util-el--close {
+   margin-right: 0.87rem;
+}
+
+.hero__util-el:not(:last-child) {
+   margin-right: 1rem;
+}
+
+.hero__util-el {
+   position: relative;
+}
+
+.hero__notes-el {
+   box-shadow: none;
+   transition: box-shadow 0.3s ease-in-out;
+}
+
+.hero__notes-el:hover {
+   transition: box-shadow 0.3s ease-in-out;
+   box-shadow: 0 0 10px 4px #c4c4c4;
+}
+
+.hero__util-el--hover {
+   transition: transform 0.3s ease-in-out;
+}
+
+.hero__util-el--hover:hover {
+   transform: scale(1.2);
+   transition: transform 0.3s ease-in-out;
+}
+
+.hero__util-el--close {
+   margin-left: auto;
+}
+
+.hero__util-select {
+   display: block;
+   appearance: none;
+   font-weight: 500;
+   font-size: 1rem;
+   padding: 0.4rem;
+   border: 2px solid var(--main-color);
+   border-radius: 5px;
+   cursor: pointer;
+   display: grid;
+   background-color: transparent;
+   outline: none;
+}
+
+.hero__util-select--size {
+   min-width: 4rem;
+}
+
+.hero__util-el--arrow::after {
+   position: absolute;
+   display: block;
+   right: 0.4rem;
+   top: 50%;
+   transform: translateY(-50%);
+   content: "";
+   width: 0.8em;
+   height: 0.5em;
+   background-color: var(--main-color);
+   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.hero__util {
+   display: none;
+}
+
+.hero__del-block {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.hero__del-block input {
+   border: 2px solid var(--main-color);
+   border-radius: 10px;
+   padding: 10px;
+   margin-right: 1rem;
+}
+
+.hero__del-note-btn {
+   float: right;
+}
+
+.hero__save-note {
+    background-color: var(--main-color, #000);
+    width: 400px;
+    color: var(--white-color, #fff);
+    font-weight: 700;
+    padding: var(--btn-padding-tb, 1.25rem) var(--btn-padding-lr, 1rem);
+    border-radius: 10px;
+    text-transform: uppercase;
+    display: none;
+}
+
+.hero__save-note:hover {
+   transition: background-color 0.3s ease-in-out;
+   background-color: var(--active-color);
+   color: var(--white-color);
+}
+
+.edit_note-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 512px) {
+
+   .aside {
+      width: 10% !important;
+   }
+
+   .hero__util {
+      display: none !important;
+   }
+
+   .full-height {
+      height: initial;
+   }
+
+   .header {
+      margin-bottom: var(--margin-bottom, 3rem);
+   }
+
+   .container {
+      /* max-width: 320px; */
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+      padding-top: 40px;
+   }
+   
+   .hero__top {
+      flex-direction: column;
+      margin-bottom: 1rem;
+   }
+
+   .hero__header-block {
+      margin-bottom: 1rem;
+   }
+
+   .hero__btn {
+      padding: 0;
+   }
+
+   .hero__func-list {
+      justify-content: space-between;
+      width: 100%;
+   }
+
+   .hero__func-el {
+      max-width: 2rem;
+   }
+
+   .hero__notes-list {
+      padding: 0;
+   }
+
+   .hero__notes-el:hover {
+      transition: none;
+      box-shadow: none;
+   }
+}
+
+@media (max-width: 767px) {
+   .notes-container {
+      padding: 20px;
+   }
+
+   .aside__logo {
+      font-size: var(--link-size, 2rem);
+      padding: 30px 20px 0 10px;
+      margin-bottom: 20px;
+   }
+
+   .aside__el {
+      padding: 10px 0 10px 10px;
+   }
+
+   .aside__account-block {
+      display: grid;
+      color: var(--white-color, #fff);
+      background-color: #A2C8B5;
+      border-radius: 10px;
+      padding: 0.5rem;
+      grid-template-columns: 0.6fr 1fr;
+      gap: 0.5rem;
+      margin: auto 10px 10px 10px;
+   }
+
+   .aside__descr {
+      font-size: 0.6rem;
+      font-weight: 500;
+      font-style: oblique;
+   }
+}
+

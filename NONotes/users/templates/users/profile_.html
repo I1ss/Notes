@@ -1,0 +1,96 @@
+{% extends 'non/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block head %}
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'non/stylesheets/profile/style.css' %}">
+{% endblock%}
+
+{% block body %}
+<div class="content-wrapper">
+   <aside class="aside">
+         <div class="aside__inner">
+            <div class="aside__logo logo">
+                <a class="aside__link" href="{% url 'notes' %}">
+                    NotOnlyNotes
+                </a>
+            </div>
+            <ul class="aside__list aside__list--small">
+               <li class="aside__el aside__el--anim">
+                  <a class="aside__link" href="{% url 'notes' %}">
+                     <img class="aside__link-icon" src="{% static 'non/img/notes/notes.svg' %}" alt="">
+                     <span>Все заметки</span>
+                  </a>
+               </li>
+               <li class="aside__el aside__el--anim">
+                  <a class="aside__link" href="{% url 'profile' %}">
+                     <img class="aside__link-icon" src="{% static 'non/img/notes/settings.svg' %}" alt="">
+                     <span>Настройки</span>
+                  </a>
+               </li>
+            </ul>
+               <a href="{% url 'profile' %}" class="aside__account-block">
+                  <img class="aside__avatar" src="{{ user.profile.image.url }}" alt="Avatar image" height="90">
+                  <div class="aside__account-block-content">
+                     <h3 class="aside__name"> {{ user.username }} </h3>
+                     <p class="aside__descr"> {{ user.profile.description }} </p>
+                  </div>
+               </a>
+            </a>
+         </div>
+   </aside>
+   <main class="main">
+      <section class="profile">
+         <div class="container notes-container">
+            <div class="profile__inner">
+               <div class="profile__settings">
+                  <h1 class="profile__header">Настройки</h1>
+                  <h2 class="profile__settings-header">Профиль</h2>
+                  <form class="profile__form" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="username">Имя пользователя</label>
+                        {% render_field user_update_form.username class="profile__form-label" type="text" %}
+                     </div>
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="email">E-mail</label>
+                        {% render_field user_update_form.email class="profile__form-label" type="text" %}
+                     </div>
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="img">Изображение
+                            <div class="profile__img-block">
+                               <img class="profile__avatar" height="90px" width="150px" src="{{ user.profile.image.url }}" alt="Profile image" style="object-fit: cover;">
+                                <label for="image" class="profile__img-btn btn" id="select_image_btn">Загрузить файл</label>
+                               <input class="profile__img-btn btn"
+                                type="file"
+                                name="image"
+                                value="Изменить"
+                                id="image"
+                                accept="image/*"
+                                style="display: none;"
+                                onchange='getImg(event)'>  
+                            </div>
+
+                        </label>
+                     </div>
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="descr">Описание</label>
+                        {% render_field profile_update_form.description class="profile__form-label" type="text" %}
+                        </label>
+                        
+                     </div>
+                    <button class="profile__btn btn" type="submit">Сохранить</button>
+                  </form>
+               </div>
+               <img class="profile__image" src="{% static 'non/img/profile/profile-img.png' %}" alt="">
+            </div>
+            <div class="hero__func-el" style="position: absolute; right: 40px; top: 40px"><a class="header__link" href="{% url 'signout' %}">Выйти</a></div>
+         </div>
+      </section>
+   </main>
+</div>
+{% block afterscripts %}
+    <script src="{% static 'users/js/imgUpload.js' %}"></script>
+    <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
+{% endblock %}
+{% endblock %}

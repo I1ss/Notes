@@ -1,0 +1,46 @@
+.container {
+   max-width: 1702px;
+   margin: 0 auto;
+   padding: 0 95px;
+}
+
+.logo {
+   font-size: var(--small-header-size, 4rem);
+   user-select: none;      
+}
+
+.btn {
+   display: inline-block;
+   border: none;
+   cursor: pointer;
+   transition: background-color 0.3s ease-in-out;
+   background-color: inherit;
+}
+
+.uppercase {
+   text-transform: uppercase;
+}
+
+.full-height {
+   height: 100vh;
+}
+
+.link {
+   background: 
+      linear-gradient(currentColor 0 0) 
+      bottom / var(--d, 0) 2px 
+      no-repeat;
+   transition: background 0.5s, 
+               color 0.5s;
+   text-decoration: none;
+}
+
+.link:hover {
+   --d: 100%;
+   text-decoration: none;
+   color: var(--main-color);
+}
+
+.visible-hidden {
+   display: none;
+}

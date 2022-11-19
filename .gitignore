@@ -1,0 +1,8 @@
+NONotes/NONotes/config.py
+NONotes/media/profile_img/[0-9]*
+*migrations
+.DS_Store
+*.sqlite3
+*__pycache__
+*.vscode
+NONotes\\db.sqlite3
